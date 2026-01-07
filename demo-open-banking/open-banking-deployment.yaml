@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: open-banking-deployment
+  labels:
+    app: open-banking
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: open-banking
+  template:
+    metadata:
+      labels:
+        app: open-banking
+    spec:
+      volumes:
+        - name: open-banking-config-props
+          configMap:
+            name: cm-open-banking-props
+        - name: open-banking-pass
+          secret:
+            secretName: my-pass
+      containers:
+      - name: open-banking
+        image: host.minikube.internal:8082/open-banking:0.1.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8092
+        volumeMounts:
+          - name: open-banking-config-props
+            mountPath: /var/lib/config
+          - name: open-banking-pass
+            mountPath: /tmp/passphrase
+        envFrom:
+          - configMapRef:
+              name: cm-open-banking-props
+        env:
+          - name: APPLICATION_SECURITY_IP_WHITELIST
+            valueFrom:
+              configMapKeyRef:
+                name: cm-open-banking
+                key: APPLICATION_SECURITY_IP_WHITELIST
+      imagePullSecrets:
+      - name: nexus-creds

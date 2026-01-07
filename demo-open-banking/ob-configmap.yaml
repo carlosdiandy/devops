@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: open-banking-cm
+data:
+  # kv format
+  APPLICATION_SECURITY_IP_WHITELIST: "127.0.0.1"
+
+  # file format
+  props.properties: |
+    APPLICATION_SECURITY_IP_WHITELIST="127.0.0.1"
