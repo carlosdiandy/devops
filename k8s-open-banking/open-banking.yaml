@@ -8,8 +8,8 @@ spec:
     server: https://kubernetes.default.svc
     namespace: default
   source:
-    path: '\demo-open-banking\open-banking-chart'
-    repoURL: 'git:\C:\xspace\lab\infra'
+    path: 'k8s-open-banking'
+    repoURL: 'https://github.com/carlosdiandy/devops.git'
     targetRevision: HEAD
   project: default
   syncPolicy:
