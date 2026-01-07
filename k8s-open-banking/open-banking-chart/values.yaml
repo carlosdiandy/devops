@@ -31,7 +31,7 @@ host:
   repo:
     local: host.minikube.internal:8082
 
-replicaCount: 3
+replicaCount: 1
 
 volumes:
   - name: open-banking-config-props
