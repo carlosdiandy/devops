@@ -7,16 +7,16 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: default
-  source:
-    directory:
-      recurse: true
-    path: 'k8s-open-banking'
-    repoURL: 'https://github.com/carlosdiandy/devops.git'
-    targetRevision: HEAD
+  sources:
+    - repoURL: 'https://github.com/carlosdiandy/devops.git'
+      path: k8s-open-banking
+      targetRevision: HEAD
+    - repoURL: 'https://github.com/carlosdiandy/devops.git'
+      path: 'k8s-open-banking/open-banking-chart'
+      targetRevision: HEAD
   project: default
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
-      - ApplyOutOfOrder=false
     automated:
       selfHeal: true
