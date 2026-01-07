@@ -10,7 +10,7 @@ spec:
   source:
     directory:
       recurse: true
-    path: 'k8s-open-banking/open-banking-chart'
+    path: 'k8s-open-banking'
     repoURL: 'https://github.com/carlosdiandy/devops.git'
     targetRevision: HEAD
   project: default
