@@ -44,4 +44,4 @@ volumeMounts:
 imagePullSecret:
   - name: nexus-creds
 image:
-  tag: 177e8e6
+  tag: 9d71632
