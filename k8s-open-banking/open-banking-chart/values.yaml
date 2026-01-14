@@ -2,7 +2,6 @@ chart:
   name: open-banking
   app:
     version: 0.1.0
-
 meta:
   annotations:
     nginx.ingress.kubernetes.io/service-upstream: "true"
@@ -17,7 +16,6 @@ meta:
     name: open-banking-cm
   labels:
     app: open-banking
-
 host:
   env:
     - name: APPLICATION_SECURITY_IP_WHITELIST
@@ -30,9 +28,7 @@ host:
         name: cm-open-banking-props
   repo:
     local: host.minikube.internal:8082
-
 replicaCount: 1
-
 volumes:
   - name: open-banking-config-props
     configMap:
@@ -40,12 +36,12 @@ volumes:
   - name: open-banking-pass
     secret:
       secretName: my-pass
-
 volumeMounts:
   - name: open-banking-config-props
     mountPath: /var/lib/config
   - name: open-banking-pass
     mountPath: /tmp/passphrase
-
 imagePullSecret:
   - name: nexus-creds
+image:
+  tag: 9d71632
