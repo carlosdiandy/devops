@@ -1,0 +1,41 @@
+app:
+  name: petclinic
+
+imagePullSecrets:
+  - name: nexus-creds
+
+image:
+  host: host.minikube.internal:8082
+  name: petclinic
+  version: 0.1.0
+  pullPolicy: Always
+
+env:
+  - name: POSTGRES_URL
+    value: jdbc:postgresql://host.minikube.internal:5432/petclinic
+  - name: POSTGRES_USER
+    valueFrom:
+      secretKeyRef:
+        key: username
+        name: petclinic
+  - name: POSTGRES_PASS
+    valueFrom:
+      secretKeyRef:
+        key: password
+        name: petclinic
+  - name: SPRING_PROFILES_ACTIVE
+    value: postgres
+  - name: SERVICE_BINDING_ROOT
+    value: /bindings
+  - name: SPRING_APPLICATION_JSON
+    value: |
+      {
+        "management.endpoint.health.probes.add-additional-paths": true
+      }
+
+service:
+  type: NodePort
+  port:
+    hostPort: 80
+    containerPort: 8080
+
