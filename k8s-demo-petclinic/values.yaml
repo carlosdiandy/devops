@@ -7,22 +7,22 @@ imagePullSecrets:
 image:
   host: host.minikube.internal:8082
   name: petclinic
-  version: 0.1.0
+  version: 0.2.0
   pullPolicy: Always
 
-env:
+environment:
   - name: POSTGRES_URL
     value: jdbc:postgresql://host.minikube.internal:5432/petclinic
   - name: POSTGRES_USER
     valueFrom:
       secretKeyRef:
         key: username
-        name: petclinic
+        name: petclinic-secret
   - name: POSTGRES_PASS
     valueFrom:
       secretKeyRef:
         key: password
-        name: petclinic
+        name: petclinic-secret
   - name: SPRING_PROFILES_ACTIVE
     value: postgres
   - name: SERVICE_BINDING_ROOT
@@ -36,6 +36,6 @@ env:
 service:
   type: NodePort
   port:
-    hostPort: 80
+    hostPort: 8088
     containerPort: 8080
 
