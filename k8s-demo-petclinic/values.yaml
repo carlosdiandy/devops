@@ -7,7 +7,7 @@ image:
   name: petclinic
   version: 0.2.0
   pullPolicy: Always
-  tag: 8b987b2
+  tag: f6ffb72
 environment:
   - name: POSTGRES_URL
     value: jdbc:postgresql://host.minikube.internal:5432/petclinic
