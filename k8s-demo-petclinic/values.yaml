@@ -1,15 +1,13 @@
 app:
   name: petclinic
-
 imagePullSecrets:
   - name: nexus-creds
-
 image:
   host: host.minikube.internal:8082
   name: petclinic
   version: 0.2.0
   pullPolicy: Always
-
+  tag: 8b987b2
 environment:
   - name: POSTGRES_URL
     value: jdbc:postgresql://host.minikube.internal:5432/petclinic
@@ -32,10 +30,8 @@ environment:
       {
         "management.endpoint.health.probes.add-additional-paths": true
       }
-
 service:
   type: NodePort
   port:
     hostPort: 8088
     containerPort: 8080
-
