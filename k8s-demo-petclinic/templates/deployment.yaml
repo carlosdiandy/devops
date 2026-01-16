@@ -25,3 +25,15 @@ spec:
           ports:
             - containerPort: {{ .Values.service.port.containerPort }}
               hostPort: {{ .Values.service.port.hostPort }}
+          livenessProbe:
+            httpGet:
+              port: 8080
+              path: /health
+            periodSeconds: 7
+          startupProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 60
+            periodSeconds: 3
+
