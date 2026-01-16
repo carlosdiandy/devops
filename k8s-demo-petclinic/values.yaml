@@ -5,9 +5,8 @@ imagePullSecrets:
 image:
   host: host.minikube.internal:8082
   name: petclinic
-  version: 0.2.0
+  version: f6ffb72
   pullPolicy: Always
-  tag: f6ffb72
 environment:
   - name: POSTGRES_URL
     value: jdbc:postgresql://host.minikube.internal:5432/petclinic
