@@ -1,26 +1,32 @@
 app:
   name: petclinic-dev
   port: 8087
-  nameServer: dev
+  nameServer: dev.petclinic.io
 metadata:
   name: petclinic-dev
 imagePullSecrets:
   - name: nexus-creds
-environment:
-  - name: POSTGRES_URL
-    value: jdbc:postgresql://host.minikube.internal:5432/petclinic
-  - name: POSTGRES_USER
-    valueFrom:
-      secretKeyRef:
-        key: username
-        name: petclinic-secret
-  - name: POSTGRES_PASS
-    valueFrom:
-      secretKeyRef:
-        key: password
-        name: petclinic-secret
+db:
+  env:
+    - name: POSTGRES_URL
+      value: jdbc:postgresql://host.minikube.internal:5432/petclinic
+    - name: POSTGRES_USER
+      valueFrom:
+        secretKeyRef:
+          key: username
+          name: petclinic-staging-secret
+    - name: POSTGRES_PASS
+      valueFrom:
+        secretKeyRef:
+          key: password
+          name: petclinic-staging-secret
 service:
   type: NodePort
   port:
     hostPort: 8087
     containerPort: 8080
+ingress:
+  name: petclinic-dev-ingress
+  className: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/service-upstream: "true"

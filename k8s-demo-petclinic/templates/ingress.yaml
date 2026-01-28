@@ -1,15 +1,15 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ .Values.meta.ingress.name }}
-  annotations: {{ toYaml .Values.meta.annotations | nindent 4 }}
+  name: {{ .Values.ingress.name }}
+  annotations: {{ toYaml .Values.ingress.annotations | nindent 4 }}
 spec:
-  ingressClassName: {{ .Values.meta.ingress.className }}
+  ingressClassName: {{ .Values.ingress.className }}
   rules:
-    - host: petclinic.io
+    - host: {{ .Values.app.nameServer }}
       http:
         paths:
-          - path: {{ .Values.app.nameServer }}
+          - path: /
             pathType: Prefix
             backend:
               service:
