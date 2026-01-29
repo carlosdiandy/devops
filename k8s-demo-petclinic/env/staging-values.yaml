@@ -30,3 +30,5 @@ ingress:
   className: nginx
   annotations:
     nginx.ingress.kubernetes.io/service-upstream: "true"
+image:
+  version: 1fed90e
