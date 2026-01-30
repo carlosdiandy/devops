@@ -18,7 +18,7 @@ spec:
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: title
+  name: {{ .Values.app.name }}-service-monitor
   labels:
     release: prometheus
     app: prometheus
