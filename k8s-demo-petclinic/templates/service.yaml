@@ -3,8 +3,8 @@ kind: Service
 metadata:
   name: {{ .Values.app.name }}
   labels:
-    job: petclinic-web
-    app: petclinic
+    job: {{ .Values.app.name }}
+    app: {{ .Values.app.name }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -30,4 +30,4 @@ spec:
       port: web-http
   selector:
     matchLabels:
-      app: petclinic
+      app: {{ .Values.app.name }}
