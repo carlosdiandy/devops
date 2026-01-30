@@ -25,7 +25,7 @@ metadata:
 spec:
   jobLabel: job
   endpoints:
-    - interval: 3
+    - interval: 3s
       path: /actuator/prometheus
       port: web-http
   selector:
