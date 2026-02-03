@@ -2,6 +2,7 @@ app:
   name: petclinic-dev
   port: 8087
   nameServer: dev.petclinic.io
+  env: dev
 metadata:
   name: petclinic-dev
 imagePullSecrets:

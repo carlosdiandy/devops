@@ -2,6 +2,7 @@ app:
   name: petclinic-staging
   port: 8089
   nameServer: staging.petclinic.io
+  env: staging
 metadata:
   name: petclinic-staging
 imagePullSecrets:
