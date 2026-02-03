@@ -13,21 +13,3 @@ spec:
       targetPort: {{ .Values.service.port.containerPort }}
   selector:
     app: {{ .Values.app.name }}
-
----
-apiVersion: monitoring.coreos.com/v1
-kind: ServiceMonitor
-metadata:
-  name: {{ .Values.app.name }}-service-monitor
-  labels:
-    release: prometheus
-    app: prometheus
-spec:
-  jobLabel: job
-  endpoints:
-    - interval: 3s
-      path: /actuator/prometheus
-      port: web-http
-  selector:
-    matchLabels:
-      app: {{ .Values.app.name }}
