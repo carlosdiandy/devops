@@ -1,6 +1,6 @@
 {{- if eq .Values.app.env "dev" }}
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   name: {{ .Values.app.name }}
   labels:
@@ -38,6 +38,8 @@ spec:
             initialDelaySeconds: 60
             periodSeconds: 3
   strategy:
-    type: RollingUpdate
+    blueGreen:
+      activeService: {{ .Values.app.env }}
+      previewService: {{ .Values.app.env }}-preview
 
 {{- end }}

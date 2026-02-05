@@ -52,11 +52,4 @@ spec:
   revisionHistoryLimit: 2
   {{- end }}
 
-  {{- if eq .Values.deployment.strategy "default" }}
-  strategy:
-    blueGreen:
-      activeService: {{ .Values.app.env }}
-      previewService: {{ .Values.app.env }}-preview
-  {{- end}}
-
 {{- end }}
