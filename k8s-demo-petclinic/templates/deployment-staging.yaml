@@ -26,7 +26,6 @@ spec:
           {{ toYaml .Values.db.env | nindent 12 }}
           ports:
             - containerPort: {{ .Values.service.port.containerPort }}
-              hostPort: {{ .Values.service.port.hostPort }}
           livenessProbe:
             httpGet:
               port: 8080
