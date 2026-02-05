@@ -30,13 +30,12 @@ spec:
             httpGet:
               port: 8080
               path: /health
-            periodSeconds: 7
           startupProbe:
             httpGet:
               path: /health
               port: 8080
             initialDelaySeconds: 60
-            periodSeconds: 3
+            failureThreshold: 30
   strategy:
     type: RollingUpdate
 
