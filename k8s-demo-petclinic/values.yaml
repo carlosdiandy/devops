@@ -5,7 +5,7 @@ imagePullSecrets:
 image:
   host: host.minikube.internal:8082
   name: petclinic
-  version: 9c8cc63
+  version: ca6da72
   pullPolicy: Always
 db:
   env:
