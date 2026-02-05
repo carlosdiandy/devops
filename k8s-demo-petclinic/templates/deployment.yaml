@@ -39,7 +39,7 @@ spec:
             periodSeconds: 3
   strategy:
     blueGreen:
-      activeService: {{ .Values.app.env }}
-      previewService: {{ .Values.app.env }}-preview
+      activeService: {{ .Values.app.name }}
+      previewService: {{ .Values.app.name }}-preview
 
 {{- end }}
