@@ -32,6 +32,6 @@ ingress:
   annotations:
     nginx.ingress.kubernetes.io/service-upstream: "true"
 image:
-  version: "b01eea1"
+  version: "d6f64da"
 deployment:
   strategy: default
