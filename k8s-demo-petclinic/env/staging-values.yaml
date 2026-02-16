@@ -32,6 +32,6 @@ ingress:
   annotations:
     nginx.ingress.kubernetes.io/service-upstream: "true"
 image:
-  version: c200557
+  version: d6f64da
 deployment:
   strategy: canary
