@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shopsn-front-deploy
+  labels:
+    app: shopsn-front-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shopsn-front-deploy
+  template:
+    metadata:
+      name: shopsn-front-deploy
+      labels:
+        app: shopsn-front-deploy
+    spec:
+      containers:
+        - name: shopsn-front-deploy
+          image: host.minikube.internal:8082/shop.sn:0.1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 4210
+              protocol: TCP
+      restartPolicy: Always
+      

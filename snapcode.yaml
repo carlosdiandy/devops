@@ -1,0 +1,7 @@
+livenessProbe:
+  httpGet:
+    path: /health/live
+    port: 8080
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  failureThreshold: 3  # 3 échecs → Redémarrage conteneur
