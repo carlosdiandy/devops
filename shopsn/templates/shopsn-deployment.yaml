@@ -15,9 +15,11 @@ spec:
       labels:
         app: shopsn-front-deploy
     spec:
+      imagePullSecrets:
+        - name: nexus-creds
       containers:
         - name: shopsn-front-deploy
-          image: host.minikube.internal:8082/shop.sn:0.1.0
+          image: host.minikube.internal:8082/shop.sn:1.1.0
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 4210

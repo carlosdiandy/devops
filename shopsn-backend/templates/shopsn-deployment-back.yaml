@@ -15,10 +15,19 @@ spec:
       labels:
         app: shopsn-back-deploy
     spec:
+      imagePullSecrets:
+        - name: nexus-creds
       containers:
         - name: shopsn-back-deploy
           image: host.minikube.internal:8082/backend.shop.sn:0.1.0
           imagePullPolicy: IfNotPresent
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://host.minikube.internal:5432/shop_db
+            - name: SHOP_APP_FRONTEND_URL
+              value: http://shop.sn
+            - name: MINIO_URL
+              value: http://host.minikube.internal:9000
           ports:
             - containerPort: 8099
               protocol: TCP

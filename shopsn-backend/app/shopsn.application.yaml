@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: shopsn-app-front
+  name: shopsn-app-backend
   namespace: argocd
 spec:
   destination:
@@ -9,7 +9,7 @@ spec:
     namespace: default
   sources:
     - repoURL: 'https://github.com/carlosdiandy/devops.git'
-      path: shopsn
+      path: shopsn-backend
       targetRevision: HEAD
       helm:
         valueFiles:
