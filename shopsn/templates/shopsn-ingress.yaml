@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: shop.local
+    - host: shop.myio
       http:
         paths:
           - path: /
@@ -18,7 +18,7 @@ spec:
                 name: shopsn-front-svc
                 port:
                   number: 4210
-    - host: api.shop.local
+    - host: api.shop.myio
       http:
         paths:
           - path: /
