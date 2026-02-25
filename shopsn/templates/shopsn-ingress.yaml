@@ -30,6 +30,6 @@ spec:
                   number: 8099
   tls:
     - hosts:
-        - shop.local
-        - api.shop.local
+        - shop.myio
+        - api.shop.myio
       secretName: shopsn-tls
