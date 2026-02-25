@@ -19,15 +19,21 @@ spec:
         - name: nexus-creds
       containers:
         - name: shopsn-back-deploy
-          image: host.minikube.internal:8082/backend.shop.sn:0.1.2
+          image: host.minikube.internal:8082/backend.shop.sn:0.2.1
           imagePullPolicy: IfNotPresent
           env:
             - name: SPRING_DATASOURCE_URL
-              value: jdbc:postgresql://host.minikube.internal:5432/shop_db
+              value: "jdbc:postgresql://host.minikube.internal:5432/shop_db"
             - name: SHOP_APP_FRONTEND_URL
-              value: https://shopsn.127.0.0.1.nip.io
+              value: "https://shopsn.127.0.0.1.nip.io"
             - name: MINIO_URL
-              value: http://host.minikube.internal:9000
+              value: "http://host.minikube.internal:9000"
+            - name: SERVER_FORWARD_HEADERS_STRATEGY
+              value: "framework"
+            - name: SERVER_SERVLET_SESSION_COOKIE_SECURE
+              value: "true"
+            - name: SERVER_SERVLET_SESSION_COOKIE_SAME_SITE
+              value: "None"
           ports:
             - containerPort: 8099
               protocol: TCP

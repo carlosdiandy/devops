@@ -4,7 +4,7 @@ metadata:
   name: shopsn-svc
 spec:
   selector:
-    app: shopsn-svc
+    app: shopsn-back-deploy
   ports:
     - protocol: TCP
       port: 8099
