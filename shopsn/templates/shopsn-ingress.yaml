@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: shop.sn
+    - host: shop.local
       http:
         paths:
           - path: /
@@ -18,7 +18,7 @@ spec:
                 name: shopsn-front-svc
                 port:
                   number: 4210
-    - host: api.shop.sn
+    - host: api.shop.local
       http:
         paths:
           - path: /
@@ -30,6 +30,6 @@ spec:
                   number: 8099
   tls:
     - hosts:
-        - shop.sn
-        - api.shop.sn
+        - shop.local
+        - api.shop.local
       secretName: shopsn-tls

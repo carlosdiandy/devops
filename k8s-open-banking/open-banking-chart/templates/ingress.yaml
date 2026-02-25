@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: {{ .Values.meta.ingress.className }}
   rules:
-    - host: openbanking.io
+    - host: openbanking.local
       http:
         paths:
           - path: /

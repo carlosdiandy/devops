@@ -25,7 +25,7 @@ spec:
             - name: SPRING_DATASOURCE_URL
               value: jdbc:postgresql://host.minikube.internal:5432/shop_db
             - name: SHOP_APP_FRONTEND_URL
-              value: http://shop.sn
+              value: http://shop.local
             - name: MINIO_URL
               value: http://host.minikube.internal:9000
           ports:
