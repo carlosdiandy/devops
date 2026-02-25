@@ -4,7 +4,6 @@ metadata:
   name: shopsn-front-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    cert-manager.io/cluster-issuer: letsencrypt-local
 spec:
   ingressClassName: nginx
   rules:
@@ -32,4 +31,4 @@ spec:
     - hosts:
         - api-shopsn.127.0.0.1.nip.io
         - shopsn.127.0.0.1.nip.io
-      secretName: shopsn-tls
+      secretName: app-tls

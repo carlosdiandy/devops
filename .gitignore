@@ -1,3 +1,9 @@
 /crds/
 /argo-rollouts/
 /argo-cd/
+*.crt
+*.key
+*.cnf
+*.csr
+*.pem
+
