@@ -7,7 +7,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: openbanking.myio
+    - host: openbanking.127.0.0.1.nip.io
       http:
         paths:
           - path: /

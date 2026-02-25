@@ -1,7 +1,7 @@
 app:
   name: petclinic-staging
   port: 8089
-  nameServer: staging.petclinic.myio
+  nameServer: staging-petclinic.127.0.0.1.nip.io
   env: staging
 metadata:
   name: petclinic-staging
