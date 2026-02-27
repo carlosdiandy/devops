@@ -19,7 +19,7 @@ spec:
         - name: nexus-creds
       containers:
         - name: shopsn-back-deploy
-          image: host.minikube.internal:8082/backend.shop.sn:0.2.2
+          image: host.minikube.internal:8082/backend.shop.sn:0.3.1
           imagePullPolicy: IfNotPresent
           env:
             - name: SPRING_DATASOURCE_URL
