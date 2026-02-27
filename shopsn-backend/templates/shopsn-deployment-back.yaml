@@ -23,7 +23,7 @@ spec:
           imagePullPolicy: IfNotPresent
           env:
             - name: SPRING_DATASOURCE_URL
-              value: "jdbc:postgresql://host.minikube.internal:5432/shop_db"
+              value: "jdbc:postgresql://host.minikube.internal:5432/shop_db_prod"
             - name: SHOP_APP_FRONTEND_URL
               value: "https://shopsn.127.0.0.1.nip.io"
             - name: MINIO_URL
