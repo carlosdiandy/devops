@@ -6,4 +6,4 @@
 *.cnf
 *.csr
 *.pem
-
+**/*-secret.yaml
