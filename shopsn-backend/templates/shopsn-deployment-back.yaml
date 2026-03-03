@@ -19,7 +19,7 @@ spec:
         - name: nexus-creds
       containers:
         - name: shopsn-back-deploy
-          image: host.minikube.internal:8082/backend.shop.sn:2.0.0
+          image: host.minikube.internal:8082/backend.shop.sn:3.0.0
           imagePullPolicy: IfNotPresent
           env:
             - name: SPRING_DATASOURCE_URL
@@ -44,6 +44,17 @@ spec:
                 secretKeyRef:
                   key: client_secret
                   name: shopsn-g-oauth-secret
+            - name: SPRING_MAIL_HOST
+              value: "mail.etamcorp.site"
+            - name: SPRING_MAIL_PORT
+              value: "587"
+            - name: SPRING_MAIL_USERNAME
+              value: "shopsn@etamcorp.site"
+            - name: SPRING_MAIL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: spring_mail_password
+                  name: spring-mail-secret
           ports:
             - containerPort: 8099
               protocol: TCP
