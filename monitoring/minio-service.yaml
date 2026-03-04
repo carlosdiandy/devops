@@ -4,7 +4,7 @@ metadata:
   name: docker-minio-service
 spec:
   type: ExternalName
-  externalName: host.docker.internal
+  externalName: localhost
   ports:
     - port: 9000
       targetPort: 9000
