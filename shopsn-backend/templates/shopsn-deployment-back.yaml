@@ -27,7 +27,7 @@ spec:
             - name: SHOP_APP_FRONTEND_URL
               value: "https://shopsn.127.0.0.1.nip.io"
             - name: MINIO_URL
-              value: "http://host.minikube.internal:9000"
+              value: "https://minio.127.0.0.1.nip.io"
             - name: SERVER_FORWARD_HEADERS_STRATEGY
               value: "framework"
             - name: SERVER_SERVLET_SESSION_COOKIE_SECURE

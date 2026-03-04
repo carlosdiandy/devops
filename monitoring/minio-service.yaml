@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: docker-minio-service
+spec:
+  type: ExternalName
+  externalName: host.docker.internal
+  ports:
+    - port: 9000
+      targetPort: 9000
