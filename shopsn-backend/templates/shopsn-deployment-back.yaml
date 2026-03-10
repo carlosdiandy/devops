@@ -19,7 +19,7 @@ spec:
         - name: nexus-creds
       containers:
         - name: shopsn-back-deploy
-          image: host.minikube.internal:8082/backend.shop.sn:3.2.1
+          image: host.minikube.internal:8082/backend.shop.sn:3.3.1
           imagePullPolicy: IfNotPresent
           env:
             - name: SPRING_DATASOURCE_URL
@@ -27,7 +27,7 @@ spec:
             - name: SHOP_APP_FRONTEND_URL
               value: "https://shopsn.127.0.0.1.nip.io"
             - name: MINIO_URL
-              value: "https://minio.127.0.0.1.nip.io"
+              value: "http://docker-minio-service:9000"
             - name: SERVER_FORWARD_HEADERS_STRATEGY
               value: "framework"
             - name: SERVER_SERVLET_SESSION_COOKIE_SECURE
