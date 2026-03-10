@@ -1,6 +1,7 @@
 /crds/
 /argo-rollouts/
 /argo-cd/
+/minio/
 *.crt
 *.key
 *.cnf
