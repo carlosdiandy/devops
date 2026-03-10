@@ -4,7 +4,4 @@ metadata:
   name: docker-minio-service
 spec:
   type: ExternalName
-  externalName: host.kubernetes.internal
-  ports:
-    - port: 9000
-      targetPort: 9000
+  externalName: host.minikube.internal
