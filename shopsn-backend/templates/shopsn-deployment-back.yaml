@@ -19,7 +19,7 @@ spec:
         - name: nexus-creds
       containers:
         - name: shopsn-back-deploy
-          image: host.minikube.internal:8082/backend.shop.sn:3.4.5
+          image: host.minikube.internal:8082/backend.shop.sn:3.4.6
           imagePullPolicy: IfNotPresent
           env:
             - name: SENEPAY_API_KEY
