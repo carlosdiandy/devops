@@ -19,7 +19,7 @@ spec:
         - name: nexus-creds
       containers:
         - name: shopsn-back-deploy
-          image: host.minikube.internal:8082/backend.shop.sn:3.4.0
+          image: host.minikube.internal:8082/backend.shop.sn:3.4.1
           imagePullPolicy: IfNotPresent
           env:
             - name: SENEPAY_API_KEY
@@ -63,6 +63,11 @@ spec:
             - name: SPRING_MAIL_USERNAME
               value: "shopsn@etamcorp.site"
             - name: SPRING_MAIL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: spring_mail_password
+                  name: shopsn-mail-secret
+            - name: SMS_GATEWAY_API_KEY
               valueFrom:
                 secretKeyRef:
                   key: spring_mail_password

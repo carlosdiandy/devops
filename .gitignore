@@ -2,6 +2,7 @@
 /argo-rollouts/
 /argo-cd/
 /minio/
+/.idea/
 *.crt
 *.key
 *.cnf
