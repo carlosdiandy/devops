@@ -70,8 +70,8 @@ spec:
             - name: SMS_GATEWAY_API_KEY
               valueFrom:
                 secretKeyRef:
-                  key: spring_mail_password
-                  name: shopsn-mail-secret
+                  key: api_key
+                  name: shopsn-sms-secret
           ports:
             - containerPort: 8099
               protocol: TCP
