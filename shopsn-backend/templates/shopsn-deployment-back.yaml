@@ -19,7 +19,7 @@ spec:
         - name: nexus-creds
       containers:
         - name: shopsn-back-deploy
-          image: host.minikube.internal:8082/backend.shop.sn:3.6.9
+          image: host.minikube.internal:8082/backend.shop.sn:3.7.0
           imagePullPolicy: IfNotPresent
           env:
             - name: SENEPAY_API_KEY
@@ -67,10 +67,25 @@ spec:
                 secretKeyRef:
                   key: spring_mail_password
                   name: shopsn-mail-secret
-            - name: SMS_GATEWAY_API_KEY
+            - name: SENDTEXT_API_KEY
               valueFrom:
                 secretKeyRef:
                   key: api_key
+                  name: shopsn-sms-secret
+            - name: SENDTEXT_API_SECRET
+              valueFrom:
+                secretKeyRef:
+                  key: api_secret
+                  name: shopsn-sms-secret
+            - name: SENDTEXT_API_URL
+              valueFrom:
+                secretKeyRef:
+                  key: api_url
+                  name: shopsn-sms-secret
+            - name: SENDTEXT_SENDER_ID
+              valueFrom:
+                secretKeyRef:
+                  key: sender_id
                   name: shopsn-sms-secret
           ports:
             - containerPort: 8099
